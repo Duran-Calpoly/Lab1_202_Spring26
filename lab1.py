@@ -3,7 +3,7 @@ Lab 1: Python Review
 Core Python programming concepts, code quality, type hints, and validation.
 """
 
-from typing import Any
+from typing import TypeAlias
 from dataclasses import dataclass
 
 # ==========================================
@@ -11,6 +11,10 @@ from dataclasses import dataclass
 # ==========================================
 # comment for part 1 here:
 
+Average: TypeAlias = float
+Seq_Names: TypeAlias = list[str]
+Population_Count: TypeAlias = int
+Seq_StockPrices: TypeAlias = list[float]
 
 
 
@@ -18,13 +22,28 @@ from dataclasses import dataclass
 # Task 2: Linear Search with Type Checking
 # ==========================================
 
+
 def linear_search(values: list[int], target: int) -> int:
-    """
-    Search through the list from left to right.
-    Returns the index of the first occurrence of target, or -1 if not found.
-    """
-    # Validation: Do not assume inputs are always correct
-    pass
+
+ # Validation: Do not assume inputs are always correct
+    if not isinstance(values, list):
+        raise TypeError("values must be a list")
+    if not isinstance(target, int):
+        raise TypeError("target must be an int")
+
+"""
+Search through the list from left to right.
+Returns the index of the first occurrence of target, or -1 if not found.
+"""
+    index = 0
+    for num in values: 
+        if num == target:
+            return index
+        index += 1
+    else:
+        return -1
+   
+    
 
 
 # ==========================================
@@ -38,7 +57,12 @@ def linear_search(values: list[int], target: int) -> int:
 #         self.id_number = id_number
 #         self.gpa = gpa
 
-
+# NEW CLASS:
+@dataclass
+class Student:
+    name: str
+    id_number: int
+    gpa: float
 
 
 # ==========================================

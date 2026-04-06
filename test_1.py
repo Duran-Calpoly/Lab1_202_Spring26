@@ -33,12 +33,18 @@ class TestLab1(unittest.TestCase):
     # --- Tests for Task 4: Merge Sorted Lists ---
 
     def test_merge_sorted_lists_typical(self) -> None:
-        pass
+        self.assertEqual(merge_sorted_lists(([4,6], [1,2,3]), [1,2,3,4,6]))
+        self.assertEqual(merge_sorted_lists(([7,8], [2,5,9]), ([2,5,7,8,9]))
     def test_merge_sorted_lists_edge_cases(self) -> None:
-        pass
+        self.assertEqual(merge_sorted_lists(([], [1,2,3]), [1,2,3]))
+        self.assertEqual(merge_sorted_lists(([3,4], [1,2,3]), [1,2,3,3,4]))
 
     def test_merge_sorted_lists_validation(self) -> None:
-        pass
+        self.assertRaises(TypeError)
+            merge_sorted_lists((["hello"], [1,2,3])
+        self.assertRaises(TypeError)
+            merge_sorted_lists(([1,4,6], ["hi"]))
+      
 
 
 if __name__ == "__main__":
